@@ -1,0 +1,29 @@
+<div class="container my-5">
+
+  <h3>Courses List</h3>
+  
+  <!-- Table  -->
+  <table class="table table-hover" *ngIf="courses">
+    <thead>
+      <tr>
+        <td> Course Id </td>
+        <td> Course Name </td>
+        <td> Course Teacher </td>
+        <td>  </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.id }}</td>
+        <td>{{ course.courseName }}</td>
+        <td>{{ course.courseTeacher }}</td>
+        <td> <a [routerLink]="['/course', 'edit', course.id]">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+   <!--  Checks course table -->
+  <div class="alert alert-danger" role="alert" *ngIf="courses.length == 0">
+    COURSES are not available ! ! !
+   </div>
+</div>
